@@ -5,6 +5,6 @@ const refs = {
 
 refs.inputEl.addEventListener("input", onInputChange);
 
-function onInputChange(event) {
+function onInputChange() {
   refs.spanEl.textContent = refs.inputEl.value;
 }
