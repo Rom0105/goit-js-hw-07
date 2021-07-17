@@ -7,7 +7,11 @@ function onInputFocus(event) {
   inputEl.classList.remove("invalid");
 }
 function onInputBlur(event) {
-  Number(event.currentTarget.value.length) === Number(inputEl.dataset.length)
-    ? inputEl.classList.add("valid")
-    : inputEl.classList.add("invalid");
+  if (
+    Number(event.currentTarget.value.length) === Number(inputEl.dataset.length)
+  ) {
+    inputEl.classList.add("valid");
+  } else {
+    inputEl.classList.add("invalid");
+  }
 }
