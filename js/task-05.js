@@ -3,8 +3,5 @@ const refs = {
   spanEl: document.querySelector("#name-output"),
 };
 
-refs.inputEl.addEventListener("input", onInputChange);
-
-function onInputChange() {
-  refs.spanEl.textContent = refs.inputEl.value;
-}
+refs.inputEl.oninput = ({ target: { value } }) =>
+  (refs.spanEl.textContent = value.trim() !== "" ? value : "незнакомец");
