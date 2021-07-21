@@ -15,12 +15,29 @@ const images = [
 
 const ulGalleryEl = document.querySelector("#gallery");
 
-const listEl = images.map((image) => {
-  const cardList = `<li class = 'item'> 
-  <img src='${image.url}' alt='${image.alt}' class = 'item-image' width = '370px' height = '250px' />
+// const galleryListItems = images.reduce(callback, "");
+
+// function callback(acc, { url, alt }) {
+//   return (
+//     acc +
+//     `<li>
+//   <img src='${url}' alt='${alt}' width='370' heigh='250' />
+//   </li>
+//  `
+//   );
+// }
+// ulGalleryEl.insertAdjacentHTML("afterbegin", galleryListItems);
+
+// console.log(galleryListItems);
+
+function createList(images) {
+  return images
+    .map(({ url, alt }) => {
+      return `<li class = 'item'>
+  <img src='${url}' alt='${alt}' class = 'item-image' width = '370px' height = '250px' />
   </li>
   `;
-  return cardList;
-});
-
-ulGalleryEl.insertAdjacentHTML("afterbegin", listEl);
+    })
+    .join("");
+}
+ulGalleryEl.insertAdjacentHTML("afterbegin", createList(images));
